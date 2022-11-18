@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:github_user_flutter/infrastructure/utils/constants.dart';
 
 import 'controllers/detail.controller.dart';
 
@@ -14,10 +15,7 @@ class DetailScreen extends GetView<DetailController> {
         centerTitle: true,
       ),
       body: Center(
-        child: Text(
-          'DetailScreen is working',
-          style: TextStyle(fontSize: 20),
-        ),
+        child: Image.network(controller.image.value),
       ),
     );
   }

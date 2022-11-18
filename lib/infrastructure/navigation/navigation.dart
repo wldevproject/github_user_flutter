@@ -43,7 +43,7 @@ class Nav {
     ),
     GetPage(
       name: Routes.USER,
-      page: () => const UserScreen(),
+      page: () =>  UserScreen(),
       binding: UserControllerBinding(),
     ),
     GetPage(

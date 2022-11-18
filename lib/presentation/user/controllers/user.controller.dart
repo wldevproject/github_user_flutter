@@ -1,23 +1,41 @@
 import 'package:get/get.dart';
+import 'package:github_user_flutter/data/datasource/remote/github_service.dart';
+import 'package:github_user_flutter/data/models/user_list_model.dart';
 
 class UserController extends GetxController {
-  //TODO: Implement UserController
+  late final GithubService _githubService;
 
-  final count = 0.obs;
+  var isLoading = true.obs;
+  var isNotData = false.obs;
+  var isNotResponse = false.obs;
+
+  var datas = List<UserListResponseModel?>.empty().obs;
+
   @override
   void onInit() {
+    _githubService = Get.put(GithubService());
+    userList();
     super.onInit();
   }
 
-  @override
-  void onReady() {
-    super.onReady();
-  }
+  Future<void> userList() async {
+    try {
+      isLoading(true);
+      final response = await _githubService.fetchUserList();
 
-  @override
-  void onClose() {
-    super.onClose();
+      if (response != null) {
+        datas.value = response;
+        if (datas.isNotEmpty) {
+          isNotData(true);
+        } else {
+          isNotData(false);
+        }
+        isNotResponse(false);
+      } else {
+        isNotResponse(true);
+      }
+    } finally {
+      isLoading(false);
+    }
   }
-
-  void increment() => count.value++;
 }

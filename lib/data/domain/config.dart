@@ -1,3 +1,5 @@
+import 'package:github_user_flutter/infrastructure/utils/constants.dart';
+
 class Environments {
   static const String PRODUCTION = 'prod';
   static const String QAS = 'QAS';
@@ -10,17 +12,17 @@ class ConfigEnvironments {
     {
       'env': Environments.DEV,
       'url': 'https://api.github.com',
-      'bearer': '',
+      'bearer': ghKey,
     },
     {
       'env': Environments.QAS,
       'url': 'https://api.github.com',
-      'bearer': '',
+      'bearer': ghKey,
     },
     {
       'env': Environments.PRODUCTION,
       'url': 'https://api.github.com',
-      'bearer': '',
+      'bearer': ghKey,
     },
   ];
 

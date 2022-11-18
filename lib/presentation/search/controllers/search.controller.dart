@@ -1,23 +1,43 @@
 import 'package:get/get.dart';
+import 'package:github_user_flutter/data/datasource/remote/github_service.dart';
+import 'package:github_user_flutter/data/models/user_search_model.dart';
 
 class SearchController extends GetxController {
-  //TODO: Implement SearchController
+  late final GithubService _githubService;
 
-  final count = 0.obs;
+  var isLoading = true.obs;
+  var isNotData = false.obs;
+  var isNotResponse = false.obs;
+
+  var datas = List<Items?>.empty().obs;
+
   @override
   void onInit() {
+    _githubService = Get.put(GithubService());
+    userSearch();
     super.onInit();
   }
 
-  @override
-  void onReady() {
-    super.onReady();
-  }
+  Future<void> userSearch() async {
+    try {
+      isLoading(true);
+      final response = await _githubService.fetchUserSearch();
 
-  @override
-  void onClose() {
-    super.onClose();
-  }
+      if (response != null) {
+        var data = response;
+        datas.value = data.items ?? [];
 
-  void increment() => count.value++;
+        if (datas.isNotEmpty) {
+          isNotData(true);
+        } else {
+          isNotData(false);
+        }
+        isNotResponse(false);
+      } else {
+        isNotResponse(true);
+      }
+    } finally {
+      isLoading(false);
+    }
+  }
 }

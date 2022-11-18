@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:github_user_flutter/infrastructure/navigation/routes.dart';
 
 import 'controllers/home.controller.dart';
 
@@ -14,9 +15,16 @@ class HomeScreen extends GetView<HomeController> {
         centerTitle: true,
       ),
       body: Center(
-        child: Text(
-          'HomeScreen is working',
-          style: TextStyle(fontSize: 20),
+        child: Column(
+          children: [
+            Text(
+              'HomeScreen is working',
+              style: TextStyle(fontSize: 20),
+            ),
+            ElevatedButton(onPressed: (){
+              Get.toNamed(Routes.USER);
+            }, child: Text("Cus")),
+          ],
         ),
       ),
     );

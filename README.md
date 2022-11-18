@@ -1,6 +1,6 @@
 # github_user_flutter
 
-Github User with Flutter
+Github User with Flutter example project for # Himakom Training Skill
 
 ## Getting Started
 

@@ -5,6 +5,7 @@ import 'package:github_user_flutter/data/models/user_list_model.dart';
 class UserController extends GetxController {
   late final GithubService _githubService;
 
+  var tabIndex = 0.obs;
   var isLoading = true.obs;
   var isNotData = false.obs;
   var isNotResponse = false.obs;
@@ -14,6 +15,7 @@ class UserController extends GetxController {
   @override
   void onInit() {
     _githubService = Get.put(GithubService());
+    print(Get.arguments);
     userList();
     super.onInit();
   }

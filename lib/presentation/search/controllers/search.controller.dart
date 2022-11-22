@@ -5,6 +5,7 @@ import 'package:github_user_flutter/data/models/user_search_model.dart';
 class SearchController extends GetxController {
   late final GithubService _githubService;
 
+  var tabIndex = 1.obs;
   var isLoading = true.obs;
   var isNotData = false.obs;
   var isNotResponse = false.obs;
@@ -14,6 +15,7 @@ class SearchController extends GetxController {
   @override
   void onInit() {
     _githubService = Get.put(GithubService());
+    print(Get.arguments);
     userSearch();
     super.onInit();
   }

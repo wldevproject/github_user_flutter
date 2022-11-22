@@ -23,10 +23,46 @@ class HomeScreen extends GetView<HomeController> {
             ),
             ElevatedButton(onPressed: (){
               Get.toNamed(Routes.USER);
+
             }, child: Text("Cus")),
           ],
         ),
       ),
     );
+  }
+
+  void openBottomSheet() {
+    Get.bottomSheet(BottomSheetView(), isDismissible: false);
+  }
+
+}
+
+class BottomSheetView extends GetView<AController> {
+  const BottomSheetView({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Obx(() => SizedBox(
+      height: 145,
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemBuilder: (context, index) {
+          final image = controller.rxData[index];
+          return Padding(
+            padding: const EdgeInsets.only(right: kHorizontalSpaceSmall),
+            child: PickImageView(
+                title: "",
+                canRemoveFileSelected: !image.isNewTakePicture,
+                fileSelected: image.filePath,
+                onRemoveTapped: () {},
+                onPressed: () {
+                  Get.toNamed(Routes.TAKE_CAMERA);
+                },
+                type: EPickImageViewType.gallary),
+          );
+        },
+        itemCount: controller.rxData.length,
+      ),
+    ));
   }
 }

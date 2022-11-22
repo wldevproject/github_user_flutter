@@ -1,11 +1,12 @@
 import 'package:get/get.dart';
 
 class DetailController extends GetxController {
+  var tabIndex = 0.obs;
   var image = ''.obs;
 
   @override
   void onInit() {
-    image.value = Get.arguments;
+    print(Get.arguments);
     super.onInit();
   }
 

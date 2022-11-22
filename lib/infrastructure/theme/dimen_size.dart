@@ -1,0 +1,1 @@
+double iconSize = 24;

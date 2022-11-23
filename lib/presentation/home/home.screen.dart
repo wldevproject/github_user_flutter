@@ -22,8 +22,8 @@ class HomeScreen extends GetView<HomeController> {
               style: TextStyle(fontSize: 20),
             ),
             ElevatedButton(onPressed: (){
-              Get.toNamed(Routes.USER);
-
+              Get.toNamed(Routes.NAVIGATION);
+              // openBottomSheet();
             }, child: Text("Cus")),
           ],
         ),
@@ -32,37 +32,64 @@ class HomeScreen extends GetView<HomeController> {
   }
 
   void openBottomSheet() {
-    Get.bottomSheet(BottomSheetView(), isDismissible: false);
+    Get.bottomSheet(
+        const NewWidget()
+    );
+    // Get.bottomSheet(BottomSheetView(), isDismissible: false);
   }
 
 }
 
-class BottomSheetView extends GetView<AController> {
-  const BottomSheetView({Key key}) : super(key: key);
+class NewWidget extends StatelessWidget {
+  const NewWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Obx(() => SizedBox(
-      height: 145,
-      child: ListView.builder(
-        scrollDirection: Axis.horizontal,
-        itemBuilder: (context, index) {
-          final image = controller.rxData[index];
-          return Padding(
-            padding: const EdgeInsets.only(right: kHorizontalSpaceSmall),
-            child: PickImageView(
-                title: "",
-                canRemoveFileSelected: !image.isNewTakePicture,
-                fileSelected: image.filePath,
-                onRemoveTapped: () {},
-                onPressed: () {
-                  Get.toNamed(Routes.TAKE_CAMERA);
-                },
-                type: EPickImageViewType.gallary),
-          );
-        },
-        itemCount: controller.rxData.length,
+    return Container(
+      child: Wrap(
+        children: <Widget>[
+          ListTile(
+              leading: Icon(Icons.music_note),
+              title: Text('Music'),
+              onTap: () {}
+          ),
+          ListTile(
+            leading: Icon(Icons.videocam),
+            title: Text('Video'),
+            onTap: () {},
+          ),
+        ],
       ),
-    ));
+    );
   }
 }
+
+// class BottomSheetView extends GetView<AController> {
+//   const BottomSheetView({Key key}) : super(key: key);
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Obx(() => SizedBox(
+//       height: 145,
+//       child: ListView.builder(
+//         scrollDirection: Axis.horizontal,
+//         itemBuilder: (context, index) {
+//           final image = controller.rxData[index];
+//           return Padding(
+//             padding: const EdgeInsets.only(right: kHorizontalSpaceSmall),
+//             child: PickImageView(
+//                 title: "",
+//                 canRemoveFileSelected: !image.isNewTakePicture,
+//                 fileSelected: image.filePath,
+//                 onRemoveTapped: () {},
+//                 onPressed: () {
+//                   Get.toNamed(Routes.TAKE_CAMERA);
+//                 },
+//                 type: EPickImageViewType.gallary),
+//           );
+//         },
+//         itemCount: controller.rxData.length,
+//       ),
+//     ));
+//   }
+// }

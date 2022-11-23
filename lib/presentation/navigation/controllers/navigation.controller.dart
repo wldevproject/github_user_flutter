@@ -1,12 +1,11 @@
 import 'package:get/get.dart';
 
 class NavigationController extends GetxController {
-  var tabIndex = 0.obs;
+  var tabIndex = 0;
 
   @override
   void onInit() {
     super.onInit();
-    tabIndex.value = 0;
   }
 
   @override
@@ -20,8 +19,9 @@ class NavigationController extends GetxController {
   }
 
   void onItemTapped(int index) {
-    tabIndex.value = index;
+    tabIndex = index;
     print("halaman ${Get.currentRoute}");
+    print("index ${tabIndex}");
     update();
   }
 }

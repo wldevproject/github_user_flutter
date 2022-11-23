@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:github_user_flutter/infrastructure/utils/constants.dart';
-import 'package:github_user_flutter/presentation/widgets/main_bottom_navigation_bar.dart';
-
 import 'controllers/detail.controller.dart';
 
 class DetailScreen extends GetView<DetailController> {
@@ -18,10 +15,6 @@ class DetailScreen extends GetView<DetailController> {
         ),
         body: Center(
           child: Image.network(controller.image.value),
-        ),
-        bottomNavigationBar: Obx(() {
-          return MainBottomNavigationBar(
-              currentIndex: controller.tabIndex.value);
-        }));
+        ));
   }
 }

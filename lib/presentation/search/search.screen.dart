@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import 'package:github_user_flutter/infrastructure/navigation/routes.dart';
 import 'package:github_user_flutter/infrastructure/theme/colors.dart';
 import 'package:github_user_flutter/presentation/widgets/custom_list_item_one.dart';
-import 'package:github_user_flutter/presentation/widgets/main_bottom_navigation_bar.dart';
 
 import 'controllers/search.controller.dart';
 
@@ -61,10 +60,6 @@ class SearchScreen extends GetView<SearchController> {
               ],
             );
           }
-        }),
-        bottomNavigationBar: Obx(() {
-          return MainBottomNavigationBar(
-              currentIndex: controller.tabIndex.value);
         }));
   }
 }

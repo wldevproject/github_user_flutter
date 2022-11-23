@@ -6,7 +6,8 @@ class Routes {
 
   static const DETAIL = '/detail';
   static const HOME = '/home';
+  static const NAVIGATION = '/navigation';
   static const SEARCH = '/search';
   static const USER = '/user';
-  static const NAVIGATION = '/navigation';
+  static const PROFILE = '/profile';
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+
 import 'package:github_user_flutter/data/domain/config.dart';
 
 import '../../presentation/screens.dart';
@@ -32,24 +33,26 @@ class Nav {
       binding: HomeControllerBinding(),
     ),
     GetPage(
-      name: Routes.DETAIL,
-      page: () => const DetailScreen(),
-      binding: DetailControllerBinding(),
+      name: Routes.NAVIGATION,
+      page: () => const NavigationScreen(),
+      binding: NavigationControllerBinding(),
+    ),
+    GetPage(
+      name: Routes.USER,
+      page: () => const UserScreen(),
     ),
     GetPage(
       name: Routes.SEARCH,
       page: () => const SearchScreen(),
-      binding: SearchControllerBinding(),
     ),
     GetPage(
-      name: Routes.USER,
-      page: () =>  UserScreen(),
-      binding: UserControllerBinding(),
+      name: Routes.PROFILE,
+      page: () => const ProfileScreen(),
     ),
     GetPage(
-      name: Routes.NAVIGATION,
-      page: () => const NavigationScreen(),
-      binding: NavigationControllerBinding(),
+      name: Routes.DETAIL,
+      page: () => const DetailScreen(),
+      binding: DetailControllerBinding(),
     ),
   ];
 }

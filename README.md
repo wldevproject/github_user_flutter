@@ -15,6 +15,7 @@ The following tools were used in this project:
 - [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
 - [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 - [GetX](https://pub.dev/packages/get)
+- [Flutter GetX Doc](https://chornthorn.github.io/getx-docs/)
 
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
